@@ -31,7 +31,8 @@
     <meta name="twitter:url" content="http://www.arcgis.com/apps/Cascade/index.html" />
     -->
 
-	<link rel="stylesheet" href="https://use.typekit.net/wgd1kzt.css">
+    <script type="text/javascript" src="//use.typekit.net/wgd1kzt.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
     <!--
       Copyright 2016-2018 Esri
@@ -84,22 +85,91 @@
     </noscript>
   </head>
   <body>
-    <style>
+  <style>
       /* CUSTOM CSS RULES */
+	  /* for WOFF-capable browsers */
+	  @font-face {
+		  font-family: 'AdelleSansCnd-Regular';
+		  src: url("resources/fonts/AdelleSansCnd/AdelleSansCnd-Regular.woff") format("woff");
+		  font-weight: normal;
+		  font-style: normal;
+	  }
+	  /* then for WOFF-capable browsers */
+	  @font-face {
+		  font-family: 'AdelleSansCnd-Semibold';
+		  src: url("resources/fonts/AdelleSansCnd/AdelleSansCnd-Semibold.woff") format("woff");
+		  font-weight: normal;
+		  font-style: normal;
+	  }
+	  /* then for WOFF-capable browsers */
+	  @font-face {
+		  font-family: 'AdelleSansCnd-Bold';
+		  src: url("resources/fonts/AdelleSansCnd/AdelleSansCnd-Bold.woff") format("woff");
+		  font-weight: normal;
+		  font-style: normal;
+	  }
+	  
+	  a {
+		  color: #00828c;
+		  text-decoration: none;
+		  border-bottom: 1px dotted #00828C;
+	  }
+	  
+	  a:hover {
+		  color: #00828c;
+		  text-decoration: none;
+		  border-bottom: 1px solid #00828C;
+	  }
+	  
+	  body > div.embed-wrapper > div.story-header > div.logo-title-container > span.logo-wrapper > a {
+	    border-bottom: none;
+	  }
+	  
       body > div.embed-wrapper > div.story-header {
 	      background-color: #ffffff!important;
       }
       
+      body .sections .section-layout-cover:first-of-type .foreground {
+	      vertical-align: bottom;
+	      margin-bottom: 78px;
+      }
+
+      .section-layout-cover .cover-subtitle {
+	      margin-top: 0;
+      }
+      
       body > div.embed-wrapper > div.story-header > div.logo-title-container > span.title.strong {
-	    font-family: 'AdelleSansCondensed','AdelleSansCnd','AdelleSansCondensed-Regular','AdelleSansCnd-Regular';
+	    font-family: 'AdelleSansCondensed','AdelleSansCnd','AdelleSansCondensed-Regular','AdelleSansCnd-Regular','Avenir Next Condensed','AvenirNextCondensed-Regular','Arial Narrow', sans-serif;
 	    font-size: 24px;
-	    font-weight: 700;
-	    line-height: 50px;
+	    font-weight: 600;
+	    line-height: 46px;
+	    color: #000000;  
 	    -webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
       }
       
+      body.mobile-view > div.embed-wrapper > div.story-header > div.logo-title-container > span.title.strong {
+	     font-size: 20px;
+	     font-weight: 600; 
+	  }
+	   
+	  body.mobile-view .story-header:not(.compact) .logo-wrapper {
+		display: inline;
+	  }   
+
+	  body .story-header:not(.compact) .logo-wrapper .logoImg {
+		max-width: 220px;
+	  }  
+	  
+	  body.mobile-view .story-header:not(.compact) .logo-wrapper .logoImg {
+		max-width: 90px;
+	  }  
+ 
+ 	  body.mobile-view .story-header .logo-wrapper .logoImg {
+		max-width: 90px;
+	  }  
+	  
       body, p {
 	    font-family: adelle, serif;
 		-webkit-font-smoothing: antialiased;
@@ -120,19 +190,52 @@
       }
       
       h1.cover-title {
-	    font-family: adelle, serif;
-	    font-weight: 100;
-	    font-size: 80px!important;
+	    font-family: 'AdelleSansCondensed','AdelleSansCnd','AdelleSansCondensed-Regular','AdelleSansCnd-Regular','Avenir Next Condensed','AvenirNextCondensed-Regular','Arial Narrow', sans-serif;
+	    font-weight: 700;
+	    font-size: 60px;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
       }
       
-      .foreground .title-text.text-dark, .background-title .title-text.text-dark {
-	      color: #ffffff;
+      body.mobile-view .section-layout-cover h1.cover-title {
+	    font-weight: 700;
+	    font-size: 40px;
       }
       
-      h2, h2.title-text, h1.fg-title {
+      @media (max-width: 1800px) {
+	    .section-layout-cover .cover-title {
+		    font-size: 4em;
+	    }
+	  }
+	  
+      @media (max-width: 1200px) {
+	    .section-layout-cover .cover-title {
+		    font-size: 3em;
+	    }
+	  }
+      
+     .foreground .title-text.text-dark, .background-title .title-text.text-dark {
+	     color: #ffffff;
+     }
+
+      
+      div.section.section-layout-title div.foreground div.text-background {
+	      background-color: #ffffff;
+	      opacity: 0.8;
+      }
+      
+      .section-layout-title .foreground h1.fg-title.title-text {
+	    color: #46646b!important;
+	    font-family: 'AdelleSansCondensed','AdelleSansCnd','AdelleSansCondensed-Regular','AdelleSansCnd-Regular','Avenir Next Condensed','AvenirNextCondensed-Regular','Arial Narrow', sans-serif;
+	    font-size: 38px;
+	    font-weight: 700;
+	    -webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+      }
+      
+      h2, h2.title-text {
 	    font-family: adelle-sans, sans-serif;
 	    -webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
@@ -161,14 +264,15 @@
 		text-align: left;
       }
       
-      .block-caption {
-	    font-family: adelle-sans, sans-serif;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		text-rendering: optimizeLegibility;
-		color: #666666;
+      .section.section-layout-title .background .image {
+	    opacity: 0.5;
+	    /* Add the blur effect */
+        filter: blur(3px);
+        -webkit-filter: blur(3px);
+        -moz-filter: blur(3px);
+        -ms-filter: blur(3px);
       }
-      
+            
       div.embed-bar, div.share > div.share-btn-container {
 	    display: none!important;
 	    opacity: 0!important;
@@ -181,6 +285,12 @@
       
       .story-header .linkContainer, .story-header.compact {
 	    color: #000000;
+      }
+      
+      /* Metro logo */
+      body > div.embed-wrapper > div.story-header > div.share > span > a {
+	      border-bottom: none;
+	      line-height: 56px;
       }
       
       .story-header .share, .story-header.compact .share {
@@ -209,13 +319,17 @@
    	  
    	  div.embed-wrapper > div.story-header > ul > li {
 	    font-family: 'AdelleSansCondensed','AdelleSansCnd','AdelleSansCondensed-Regular','AdelleSansCnd-Regular','Avenir Next Condensed','AvenirNextCondensed-Regular','Arial Narrow','Avenir Next','AvenirNext-Regular','Helvetica Neue','Helvetica','Arial',sans-serif;
-	    font-size: 16px;
+	    font-size: 18px;
 	    font-weight: 600;
 	    line-height: 22px;
 	    text-decoration: none;
-        color: #768f94;
+        color: #003b5c;
    	  }
 
+   	  body.mobile-view div.embed-wrapper > div.story-header > ul > li {
+	    font-size: 16px;
+	  }
+	   	  
 	  div.embed-wrapper > div.story-header > ul > li:hover {
         border-bottom: 6px solid #00828c;
       }
@@ -237,9 +351,38 @@
 		  border-bottom: none;
 	  }
 
-	  figcaption.block-caption {
-		  color: #606060;
+      .block-caption {
+	    font-family: adelle-sans, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
+		color: #4c4c4c;
+      }
+
+	  /* caption for a gallery of images */
+	  div.image-gallery figcaption.block-caption {
 		  font-size: 15px;
+	  }
+	  
+	  /* caption for single image */
+	  div.image figcaption.block-caption {
+		  padding: 5px;
+		  color: #ffffff;
+		  background-color: #5f6c75;
+		  margin-top: 0!important;
+	  }
+	  
+	  body.mobile-view .section-layout-sequence figcaption.block-caption {
+		  width: 100%;
+		  padding: 5px;
+	  }
+	  
+	  div.image figcaption.block-caption:empty {
+		  padding: 0;
+	  }
+	  
+	  body.mobile-view .section-layout-sequence h1 {
+		  font-size: 25px;
 	  }
 	  
 	  .section-layout-sequence blockquote, blockquote {
@@ -256,9 +399,11 @@
 	  }
 	  
 	  .foreground .text-background.background-light, .background-title .text-background.background-light {
-		  background-color: rgba(0,59,92,.9);
+		  background-color: rgba(0,59,92,.8);
+		  max-width: 100%;
 	  }
 	  
+	  /* credits area */
 	  strike {
 		font-size: 14px;
 		text-align: left!important;
@@ -273,12 +418,64 @@
 	  }
 	  
 	  .section-layout-credits .foreground {
+		  color: #000000;
+		  background-color: #fbfcf4;
+	  }
+	  
+	  .section-layout-credits .foreground .credits {
+		  color: #000000;
+	  }
+	  
+	  body > div.embed-wrapper > div.sections > div.section.section-layout-credits > div.foreground > div > div.blocks > p:first-child {
+		  text-align: left!important;
+	  }
+	  
+	  .section-layout-credits div.credits .cr-input-container .cr-item-input.cr-source,
+	  .section-layout-credits div.credits .cr-input-container .cr-item-input.cr-content {
+		  color: #000000;
+		  font-family: 'adelle', 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	  }
+	  
+	  body .section-layout-credits .foreground .blocks a {
+		  color: #00828c;
+		  text-decoration: none;
+	  }
+	  
+	  .bookmarks .bookmark {
+		  color: #ffffff;
+	  }
+	  .bookmarks .dropdown .dropdown-menu {
 		  background-color: #003b5c;
 	  }
-
-	  body .section-layout-credits .foreground .blocks a {
+	  .bookmarks .dropdown.active .dropdown-toggle {
+		  color: #d8a833;
+	  }
+	  .bookmarks .dropdown .bookmark.active {
 		  color: #ffffff;
-		  text-decoration: underline;
+		  border-left-color: #d8a833!important;
+	  }
+	  .bookmarks .dropdown .bookmark:hover {
+		  border-left-color: #16a8b5;
+	  }
+	  
+	  body > div.embed-wrapper > div.sections > div.section.section-layout-cover.cover-1.static.active > div > div:nth-child(2) > div.foo > div.text-background.background-light {
+	  	width: 100%;
+	  }
+	  
+	  /* weird mobile version widget -- can this be modified? */
+	  .section-layout-sequence.sequence-2 .block {
+	      font-family: 'adelle-sans','Avenir Next','AvenirNext-Regular','Helvetica Neue','Helvetica','Arial',sans-serif;
+	      font-weight: 600;
+	      
+		  background-color: #eeeeee;
+		  color: #008480;
+	  }
+	  
+	  .section.section-layout-sequence.sequence-2 a.btn.btn-warning-email {
+		  display: none;
+		  visibility: hidden;
+		  background-color: #00828c!important;
+		  color: #ffffff!important;
 	  }
     </style>
 
@@ -386,5 +583,6 @@
     <div id="print-wrapper"></div>
 
     <script type="text/javascript" src="app/main-config.js"></script>
+    <div style="background-color: #00385c; min-height: 100px; padding: 40px; color: #ffffff;"><h2>Standard Metro footer here</h2><br /><p>?djfo jsdf ds jfgls jhgfhjflkds hjfdslhj fdlskhjfdklsjfg dlskj fdlsk jhfgvdkls jfdslk hjfdkls hjfdlsk fhjslkd fhjklds hjflsdk hfgskld hfgsdkl hfgdskjl hgfdsklfg hjskl gfhjsdkfl fghjkl ghjkldfs jhfgklds hjglkf hjglks hgjklsf hgklfsd hfklsd hfglkds hfgkls hfgkls hlk fgshdlk gfdshglks hgslk hglkfsd hgklsdf hglkfsd hglkfjsd hglkd hfglkgfhlkj gfhdlk ghsdfl gfhsd gsdfhjkl ghl ghf ghilg fhgkishfgi jhfelijk tghrdfujkaghfsdo;ah fgdsjk  hgfdojk; hgfio; hgfdjk hgfdohgf</p></div>
   </body>
 </html>
