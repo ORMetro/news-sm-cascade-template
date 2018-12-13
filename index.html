@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title>Metro News storymap on bears</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -41,13 +41,88 @@
       https://github.com/Esri/story-map-cascade
     -->
 
+	<!-- accept parameter in the URI as to which storymap to load -->
+	<script type="text/javascript">
+		function getAllUrlParams(url) {
+		
+		  // get query string from url (optional) or window
+		  var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+		
+		  // we'll store the parameters here
+		  var obj = {};
+		
+		  // if query string exists
+		  if (queryString) {
+		
+		    // stuff after # is not part of query string, so get rid of it
+		    queryString = queryString.split('#')[0];
+		
+		    // split our query string into its component parts
+		    var arr = queryString.split('&');
+		
+		    for (var i = 0; i < arr.length; i++) {
+		      // separate the keys and the values
+		      var a = arr[i].split('=');
+		
+		      // set parameter name and value (use 'true' if empty)
+		      var paramName = a[0];
+		      var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
+		
+		      // (optional) keep case consistent
+		      paramName = paramName.toLowerCase();
+		      if (typeof paramValue === 'string') paramValue = paramValue.toLowerCase();
+		
+		      // if the paramName ends with square brackets, e.g. colors[] or colors[2]
+		      if (paramName.match(/\[(\d+)?\]$/)) {
+		
+		        // create key if it doesn't exist
+		        var key = paramName.replace(/\[(\d+)?\]/, '');
+		        if (!obj[key]) obj[key] = [];
+		
+		        // if it's an indexed array e.g. colors[2]
+		        if (paramName.match(/\[\d+\]$/)) {
+		          // get the index value and add the entry at the appropriate position
+		          var index = /\[(\d+)\]/.exec(paramName)[1];
+		          obj[key][index] = paramValue;
+		        } else {
+		          // otherwise add the value to the end of the array
+		          obj[key].push(paramValue);
+		        }
+		      } else {
+		        // we're dealing with a string
+		        if (!obj[paramName]) {
+		          // if it doesn't exist, create property
+		          obj[paramName] = paramValue;
+		        } else if (obj[paramName] && typeof obj[paramName] === 'string'){
+		          // if property does exist and it's a string, convert it to an array
+		          obj[paramName] = [obj[paramName]];
+		          obj[paramName].push(paramValue);
+		        } else {
+		          // otherwise add the property
+		          obj[paramName].push(paramValue);
+		        }
+		      }
+		    }
+		  }
+		
+		  return obj;
+		}
+	</script>
     <script type="text/javascript">
+	    var metAppID = getAllUrlParams().appid;
+	    if (metAppID) {
+		    console.log('appID provided in invocation');
+	    } else {
+		    console.log('appID = ' + metAppID);
+		    metAppID = "8f560c699ab140e88db5d1ebcec1b267";
+		    console.log('No appID provided, using default');
+	    }
       //---------------------------------
       //     Application configuration
       //---------------------------------
       var configOptions = {
         // Enter an application ID created through the Cascade builder
-        appid: "8f560c699ab140e88db5d1ebcec1b267",
+        appid: metAppID,
         // Optionally, to secure Cascade's access, if the story item is private or to use the builder
         //    configure an ArcGIS OAuth application ID (example: 6gyOg377fLUhUk6f)
         // When specified, sign-in is mandatory even if your story is public
@@ -219,20 +294,44 @@
 	     color: #ffffff;
      }
 
+	 .foreground .text-background.background-light {
+		  background-color: rgba(0,59,92,.8);
+		  max-width: 100%;
+	 }
+	  
+	 /* special case for the demo */
+
+	  body > div.embed-wrapper > div.sections > div.section.section-immersive.layout-scroll-full.section-on-screen.bring-in.active > div.background-title > div {
+	    background-color: rgba(255,255,255,0);
+      }
+
+	 body > div.embed-wrapper > div.sections > div.section.section-immersive.layout-scroll-full.section-on-screen.bring-in.active > div.background-title > div > h2 {
+		 color: #000000;
+	 }
+
+      body > div.embed-wrapper > div.sections > div.section.section-immersive.layout-scroll-full.section-on-screen.bring-in.active > div.background-title > div > h2 {
+        font-family: adelle, serif;
+        text-shadow: 1px 1px 4px #ffffff, 1px 1px 8px #ffffff, 1px 1px 16px #ffffff, 1px 1px 24px #ffffff, 1px 1px 36px #ffffff, 1px 1px 48px #ffffff;
+      }
       
       div.section.section-layout-title div.foreground div.text-background {
-	      background-color: #ffffff;
-	      opacity: 0.8;
+	      background-color: rgba(255,255,255,0);
+	      opacity: 1;
+      }
+      
+      .section-immersive .background-title {
+	      top: 76px;
       }
       
       .section-layout-title .foreground h1.fg-title.title-text {
-	    color: #46646b!important;
+	    color: #374f54!important;
 	    font-family: 'AdelleSansCondensed','AdelleSansCnd','AdelleSansCondensed-Regular','AdelleSansCnd-Regular','Avenir Next Condensed','AvenirNextCondensed-Regular','Arial Narrow', sans-serif;
 	    font-size: 38px;
 	    font-weight: 700;
 	    -webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
+        text-shadow: 1px 1px 32px #ffffff, 1px 1px 48px #ffffff, 1px 1px 64px #ffffff;
       }
       
       h2, h2.title-text {
@@ -240,6 +339,18 @@
 	    -webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
+      }
+      
+      .blocksWrapper .blocks {
+	      padding: 25px;
+      }
+      
+      .imm-panel.theme-black-over-white .blocks {
+	      background-color: rgba(255,255,255,0.85);
+      }
+      
+      p.block {
+	    font-size: 18px;   
       }
       
       h1.block {
@@ -265,6 +376,7 @@
       }
       
       .section.section-layout-title .background .image {
+	    max-height: 150px;
 	    opacity: 0.5;
 	    /* Add the blur effect */
         filter: blur(3px);
@@ -325,6 +437,10 @@
 	    text-decoration: none;
         color: #768f94;
    	  }
+
+      div.embed-wrapper > div.story-header > ul > li:hover {
+	      color: #003b5c;
+      }
 
    	  body.mobile-view div.embed-wrapper > div.story-header > ul > li {
 	    font-size: 16px;
@@ -398,11 +514,6 @@
 		border-bottom: 1px solid #ced0d2;
 	  }
 	  
-	  .foreground .text-background.background-light, .background-title .text-background.background-light {
-		  background-color: rgba(0,59,92,.8);
-		  max-width: 100%;
-	  }
-	  
 	  /* credits area */
 	  strike {
 		font-size: 14px;
@@ -419,7 +530,7 @@
 	  
 	  .section-layout-credits .foreground {
 		  color: #000000;
-		  background-color: #fbfcf4;
+		  background-color: #e5e0d8;
 	  }
 	  
 	  .section-layout-credits .foreground .credits {
@@ -477,6 +588,117 @@
 		  background-color: #00828c!important;
 		  color: #ffffff!important;
 	  }
+	  
+	  .met-footer-wrapper {
+		   width: 100%; 
+		   background-color: #00385c; 
+		   min-height: 100px; 
+		   padding: 40px; 
+		   color: #ffffff;
+	  }
+	  
+	  /* Standard Metro footer */
+	  
+	  .met-signature-wrapper {
+		 margin-top: 150px;
+		 vertical-align: bottom;
+	  }
+	  
+  	  div#metro-illustrated-strip {
+	    height: 76px;
+        width: 944px;
+        margin: 40px auto 0 auto;
+		vertical-align: bottom;
+      }
+      
+	  div#metro-illustrated-strip::before {
+        content: '';
+        position: absolute;
+        width: 944px;
+        height: 76px;
+        z-index: 0;
+        background-image: url(https://www.oregonmetro.gov/sites/all/themes/metro_theme/images/footer-illustration-strip-v4-944x76px.png);
+        background-position: 50% bottom;
+        background-repeat: no-repeat;
+	  }
+	  
+	  .met-footer-flexbox {
+		  display: flex;
+		  flex-direction: row;
+		  max-width: 975px;
+		  margin: 0 auto;
+	  }
+	  
+	  .met-footer-row {
+		  display: flex;
+		  flex-direction: row;
+		  flex-wrap: nowrap;
+		  width: 100%;
+	  }
+	  
+	  .met-footer-item {
+		  display: flex;
+		  flex-flow: column;
+		  width: 30%;
+		  padding: 20px 18px 0 0;
+	  }
+	  
+	  .met-footer-item.met-wider-article {
+		  width: 40%;
+	  }
+	  
+	  .met-menu-header {
+		  font-family: 'AdelleSansCondensed','AdelleSansCnd','AdelleSansCondensed-Regular','AdelleSansCnd-Regular','Avenir Next Condensed','AvenirNextCondensed-Regular','Arial Narrow','Avenir Next','AvenirNext-Regular','Helvetica Neue','Helvetica','Arial',sans-serif;
+		  font-size: 1.3em;
+		  font-weight: 700;
+		  text-transform: uppercase;
+		  color: #ffffff;
+		  margin-top: 0;
+		  padding-bottom: 12px;
+	  }
+	  
+	  .met-menu-item-clump {
+		  display: block;
+		  list-style: none;
+		  padding: 0;
+		  margin-bottom: 20px;
+	  }
+	  
+	  .met-menu-item {
+		line-height: 1.3em;
+        font-family: 'adelle-sans','Avenir Next','AvenirNext-Regular','Helvetica Neue','Helvetica','Arial',sans-serif;
+        margin: 0;
+        padding: 0;
+	  }
+	  
+	  .met-menu-item a {
+		display: inline-block;
+		padding: 0.25em 0;
+		color: #eeeeee;
+		border-bottom: none;
+	  }
+
+	  p.met-footer-text {
+		font-size: 1.1em;
+		line-height: 1.4em;
+		color: #c1cfd4;
+	    -webkit-font-smoothing: antialiased;
+	    -moz-osx-font-smoothing: grayscale;
+	    font-smoothing: antialiased;
+	    text-rendering: optimizeLegibility;
+	  }
+	  
+	  p.met-footer-logo {
+		margin-bottom: 20px;
+	  }
+	  
+	  p.met-footer-logo img {
+		vertical-align: top;
+	  }
+	  
+	  .met-neg-margin-top-10 {
+		  margin-top: -5px;
+	  }
     </style>
 
     <div class="embed-wrapper">
@@ -486,7 +708,7 @@
       <div class="story-header compact" role="banner" style="top: 8px;">
         <div class="logo-title-container">
           <span class="logo-wrapper">
-            <a class="logoLink" href="" target="_blank" alt="Link to organization">
+            <a class="logoLink" href="" target="_blank" title="Metro homepage">
               <img class="logoImg" src="" alt="Logo">
             </a>
           </span>
@@ -581,8 +803,91 @@
       </div>
     </div>
     <div id="print-wrapper"></div>
-
     <script type="text/javascript" src="app/main-config.js"></script>
-    <div style="background-color: #00385c; min-height: 100px; padding: 40px; color: #ffffff;"><h2>Standard Metro footer here</h2><br /><p>?djfo jsdf ds jfgls jhgfhjflkds hjfdslhj fdlskhjfdklsjfg dlskj fdlsk jhfgvdkls jfdslk hjfdkls hjfdlsk fhjslkd fhjklds hjflsdk hfgskld hfgsdkl hfgdskjl hgfdsklfg hjskl gfhjsdkfl fghjkl ghjkldfs jhfgklds hjglkf hjglks hgjklsf hgklfsd hfklsd hfglkds hfgkls hfgkls hlk fgshdlk gfdshglks hgslk hglkfsd hgklsdf hglkfsd hglkfjsd hglkd hfglkgfhlkj gfhdlk ghsdfl gfhsd gsdfhjkl ghl ghf ghilg fhgkishfgi jhfelijk tghrdfujkaghfsdo;ah fgdsjk  hgfdojk; hgfio; hgfdjk hgfdohgf..</p></div>
+    
+    <div class="met-signature-wrapper">
+	    <div id="metro-illustrated-strip">
+	      <p>&nbsp;</p>
+	    </div>
+    </div>
+    <div class="met-footer-wrapper">
+	  <div class="met-footer-flexbox">
+		<!-- row with services/opttys/text -->
+        <section class="met-footer-row">
+          <article class="met-footer-item">
+		     <h2 class="met-menu-header">Services of Metro</h2>
+		     <ul class="met-menu-item-clump">
+			     <li class="met-menu-item"><a href="https://www.oregonzoo.org/">Oregon Zoo</a></li>
+			     <li class="met-menu-item"><a href="https://www.oregoncc.org/">Oregon Convention Center</a></li>
+			     <li class="met-menu-item"><a href="https://www.expocenter.org/">Portland Expo Center</a></li>
+			     <li class="met-menu-item"><a href="https://www.portland5.com/">Portland'5 Centers for the Arts</a></li>
+			     <li class="met-menu-item"><a href="https://www.portland5.com/">Data Resource Center</a></li>
+			     <li class="met-menu-item"><a href="https://www.portland5.com/">Garbage and recycling facilities</a></li>
+			     <li class="met-menu-item"><a href="https://www.portland5.com/">Metro cemeteries</a></li>
+		     </ul>
+          </article>
+	      <article class="met-footer-item">
+		     <h2 class="met-menu-header">Opportunities</h2>
+		     <ul class="met-menu-item-clump">
+			     <li class="met-menu-item"><a href="http://www.oregonzoo.org/">Jobs</a></li>
+			     <li class="met-menu-item"><a href="http://www.oregoncc.org/">Contracts</a></li>
+			     <li class="met-menu-item"><a href="http://www.oregoncc.org/">Volunteering</a></li>
+			     <li class="met-menu-item"><a href="http://www.oregoncc.org/">Grants</a></li>
+			     <li class="met-menu-item"><a href="http://www.oregoncc.org/">Franchising and licensing</a></li>
+		     </ul>
+	      </article>
+		  <article class="met-footer-item met-wider-article met-neg-margin-top-10">
+			  <p claSS="met-footer-logo"><img width="91" height="36" alt="Metro logo" src="https://www.oregonmetro.gov/sites/default/files/styles/content/public/2016/03/07/Horizontal_White_MetroLogo_91x36px.png"></p>
+			  <p class="met-footer-text">Whether your roots in the region run generations deep or you moved to Oregon last week, you have your own reasons for loving this place – and Metro wants to keep it that way. Help shape the future of the greater Portland region and discover tools, services and places that make life better today.</p>
+          </article>
+        </section>
+	  </div>
+	  <div class="met-footer-flexbox">
+        <!-- row with access/leadership/contact -->
+        <section class="met-footer-row">
+	       <article class="met-footer-item">
+		     <h2 class="met-menu-header">Access</h2>
+		     <ul class="met-menu-item-clump">
+			     <li class="met-menu-item"><a href="https://www.oregonmetro.gov/regional-leadership/access-metro/know-your-rights">Know your rights</a></li>
+			     <li class="met-menu-item"><a href="https://www.oregonmetro.gov/languagehub">Language assistance</a></li>
+			     <li class="met-menu-item"><a href="https://www.oregonmetro.gov/regional-leadership/contact-metro">Feedback and questions</a></li>
+			     <li class="met-menu-item"><a href="https://www.oregonmetro.gov/languagehub">Metro Accountability Hotline</a></li>
+			     <li class="met-menu-item"><a href="https://www.oregonmetro.gov/languagehub">Request public records</a></li>
+			     <li class="met-menu-item"><a href="https://www.oregonmetro.gov/languagehub">Directions</a></li>
+		     </ul>
+	      </article>
+	      <article class="met-footer-item">
+		     <h2 class="met-menu-header">Leadership</h2>
+		     <ul class="met-menu-item-clump">
+			     <li class="met-menu-item"><a href="http://www.oregonzoo.org/">Metro Council</a></li>
+			     <li class="met-menu-item"><a href="http://www.oregoncc.org/">Metro AUditor</a></li>
+			     <li class="met-menu-item"><a href="http://www.oregoncc.org/">MERC</a></li>
+			     <li class="met-menu-item"><a href="http://www.oregoncc.org/">Committees</a></li>
+			     <li class="met-menu-item"><a href="http://www.oregoncc.org/">Who's my councilor?</a></li>
+		     </ul>
+	      </article>
+	      <article class="met-footer-item met-wider-article">
+		     <h2 class="met-menu-header">Contact Metro</h2>
+		     <ul class="met-menu-item-clump">
+			     <li class="met-menu-item"<a href="tel:5037971700">Phone: 503-797-1700</a></li>
+			     <li class="met-menu-item">TDD: 503-797-1804 TDD</li>
+			     <li class="met-menu-item">Email: <a href="mailto:feedback@oregonmetro.gov">feedback@oregonmetro.gov</a></li>
+		     </ul>
+	      </article>
+	    </section>
+	  </div>
+	  <div class="met-footer-flexbox">
+	    <!-- row with access/leadership/contact -->
+        <section class="met-footer-row">
+	      <article class="met-footer-item">
+   		     <h2 class="met-menu-header">Connect with Metro</h2>
+		     <ul class="met-menu-item-clump">
+			     <li class="met-menu-item"><a href="http://www.oregonzoo.org/">Subscribe to Metro News</a></li>
+			     <li class="met-menu-item"><a href="http://www.oregoncc.org/">More subscription options</a></li>
+		     </ul>
+	      </article>
+        </section>    
+	  </div>
+    </div>
   </body>
 </html>
