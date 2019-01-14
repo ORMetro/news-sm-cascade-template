@@ -3,21 +3,21 @@
 	  /* for WOFF-capable browsers */
 	  @font-face {
 		  font-family: 'AdelleSansCnd-Regular';
-		  src: url("resources/fonts/AdelleSansCnd/AdelleSansCnd-Regular.woff") format("woff");
+		  src: url("../resources/fonts/AdelleSansCnd/AdelleSansCnd-Regular.woff") format("woff");
 		  font-weight: normal;
 		  font-style: normal;
 	  }
 	  /* then for WOFF-capable browsers */
 	  @font-face {
 		  font-family: 'AdelleSansCnd-Semibold';
-		  src: url("resources/fonts/AdelleSansCnd/AdelleSansCnd-Semibold.woff") format("woff");
+		  src: url("../resources/fonts/AdelleSansCnd/AdelleSansCnd-Semibold.woff") format("woff");
 		  font-weight: normal;
 		  font-style: normal;
 	  }
 	  /* then for WOFF-capable browsers */
 	  @font-face {
 		  font-family: 'AdelleSansCnd-Bold';
-		  src: url("resources/fonts/AdelleSansCnd/AdelleSansCnd-Bold.woff") format("woff");
+		  src: url("../resources/fonts/AdelleSansCnd/AdelleSansCnd-Bold.woff") format("woff");
 		  font-weight: normal;
 		  font-style: normal;
 	  }
