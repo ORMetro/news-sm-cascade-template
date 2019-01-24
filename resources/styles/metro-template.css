@@ -1,5 +1,12 @@
 /** Metro customizations **/
 
+	  [data-src="https://www.riddle.com/a/136591?"] {
+		  min-height: 1300px!important;
+	  }
+	  
+	  div < [data-src="https://www.riddle.com/a/136591?"] {
+		  min-height: 1300px!important;
+	  }
       /* CUSTOM CSS RULES */
 	  /* for WOFF-capable browsers */
 	  @font-face {
@@ -104,8 +111,8 @@
       }
       
       h1.cover-title {
-	    font-family: 'AdelleSansCondensed','AdelleSansCnd','AdelleSansCondensed-Regular','AdelleSansCnd-Regular','Avenir Next Condensed','AvenirNextCondensed-Regular','Arial Narrow', sans-serif;
-	    font-weight: 700;
+	    font-family: 'AdelleSansCnd-Bold', 'AdelleSansCondensed','AdelleSansCnd','AdelleSansCondensed-Regular','AdelleSansCnd-Regular','Avenir Next Condensed','AvenirNextCondensed-Regular','Arial Narrow', sans-serif;
+	    font-weight: normal;
 	    font-size: 60px;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
@@ -540,3 +547,5 @@
 	  }
 
 
+	  
+	  
