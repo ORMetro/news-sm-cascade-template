@@ -36,6 +36,17 @@
     <script type="text/javascript" src="//use.typekit.net/wgd1kzt.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+	<!-- colorbox -->
+	<link rel="stylesheet" href="resources/styles/colorbox.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="resources/lib/colorbox/jquery.colorbox-min.js"></script>
+	
+		<script>
+			$(document).ready(function() {
+				// assign the Colorbox event to the class colorbox-load
+				$(".met-colorbox-popup").colorbox({iframe:true, closeButton:true, width:"380", height:"480"});
+			});
+		</script>
     <!--
       Copyright 2016-2018 Esri
       This application is released under the Apache License V2.0 by Esri http://www.esri.com/
@@ -201,6 +212,10 @@
 	  <div class="met-footer-flexbox">
 		<!-- row with services/opttys/text -->
         <section class="met-footer-row">
+		  <article class="met-footer-item met-wider-article met-neg-margin-top-10" style="order:3;">
+			  <p class="met-footer-logo"><a href="https://www.oregonmetro.gov"><img width="91" height="36" alt="Metro logo" src="https://www.oregonmetro.gov/sites/default/files/styles/content/public/2016/03/07/Horizontal_White_MetroLogo_91x36px.png"></a></p>
+			  <p class="met-footer-text">Whether your roots in the region run generations deep or you moved to Oregon last week, you have your own reasons for loving this place – and Metro wants to keep it that way. Help shape the future of the greater Portland region and discover tools, services and places that make life better today.</p>
+          </article>
           <article class="met-footer-item">
 		     <h2 class="met-menu-header">Services of Metro</h2>
 		     <ul class="met-menu-item-clump">
@@ -223,10 +238,7 @@
 			     <li class="met-menu-item"><a href="http://www.oregoncc.org/">Franchising and licensing</a></li>
 		     </ul>
 	      </article>
-		  <article class="met-footer-item met-wider-article met-neg-margin-top-10">
-			  <p claSS="met-footer-logo"><img width="91" height="36" alt="Metro logo" src="https://www.oregonmetro.gov/sites/default/files/styles/content/public/2016/03/07/Horizontal_White_MetroLogo_91x36px.png"></p>
-			  <p class="met-footer-text">Whether your roots in the region run generations deep or you moved to Oregon last week, you have your own reasons for loving this place – and Metro wants to keep it that way. Help shape the future of the greater Portland region and discover tools, services and places that make life better today.</p>
-          </article>
+
         </section>
 	  </div>
 	  <div class="met-footer-flexbox">
@@ -256,8 +268,8 @@
 	      <article class="met-footer-item met-wider-article">
 		     <h2 class="met-menu-header">Contact Metro</h2>
 		     <ul class="met-menu-item-clump">
-			     <li class="met-menu-item"<a href="tel:5037971700">Phone: 503-797-1700</a></li>
-			     <li class="met-menu-item">TDD: 503-797-1804 TDD</li>
+			     <li class="met-menu-item"><a href="tel:+15037971700">Phone: 503-797-1700</a></li>
+			     <li class="met-menu-item"><a href="tel:+15037971804">TDD: 503-797-1804 TDD</a></li>
 			     <li class="met-menu-item">Email: <a href="mailto:feedback@oregonmetro.gov">feedback@oregonmetro.gov</a></li>
 		     </ul>
 	      </article>
@@ -269,8 +281,8 @@
 	      <article class="met-footer-item">
    		     <h2 class="met-menu-header">Connect with Metro</h2>
 		     <ul class="met-menu-item-clump">
-			     <li class="met-menu-item"><a href="http://www.oregonzoo.org/">Subscribe to Metro News</a></li>
-			     <li class="met-menu-item"><a href="http://www.oregoncc.org/">More subscription options</a></li>
+			     <li class="met-menu-item"><a href="https://oregonmetro.wufoo.com/forms/k16dbqb1014faui/" class="met-colorbox-popup" title="Get Metro News by email to keep up with what the regional government and its partners are doing to manage parks, growth, transportation, environment and economy" target="_blank">Subscribe to Metro News</a></li>
+			     <li class="met-menu-item"><a href="https://www.oregonmetro.gov/subscribe">More subscription options</a></li>
 		     </ul>
 	      </article>
         </section>    

@@ -485,6 +485,7 @@
 	  .met-footer-item {
 		  display: flex;
 		  flex-flow: column;
+		  order: 2;
 		  width: 30%;
 		  padding: 20px 18px 0 0;
 	  }
@@ -511,7 +512,7 @@
 	  }
 	  
 	  .met-menu-item {
-		line-height: 1.3em;
+		line-height: 18px;
         font-family: 'adelle-sans','Avenir Next','AvenirNext-Regular','Helvetica Neue','Helvetica','Arial',sans-serif;
         margin: 0;
         padding: 0;
@@ -546,6 +547,69 @@
 		  margin-top: -5px;
 	  }
 
+    .imm-panel.theme-white-over-black .blocks {
+	    color: #000000;
+    }
+    
+    .imm-panel.style-text-shadow.theme-white-over-black .blocks {
+	    color: #ffffff;
+    }
 
+	/* mod dark template to look like Metro content */
+	.theme-major-dark .section-layout-sequence .foreground {
+		background-color: #fff;
+		
+	}
+	
+	.theme-white-over-black .blocksWrapper > .blocks {
+		background-color: rgba(255,255,255,0.8);
+	}
+
+    body.theme-major-dark p.block {
+	    color: #4d5e66;
+    }
+    
+    div.section.section-layout-title, section.section-layout-title div.background.background-type-image, .theme-major-dark .background {
+	    background-color: #ffffff;
+    }
+    
+    body:not(.builder-mode).theme-major-dark .section.section-layout-title, body:not(.builder-mode).theme-major-dark .section.section-immersive {
+	    background-color: #ffffff!important;
+    }
+    
+    .theme-major-dark .section-immersive .background-filler {
+	    background-color: #ffffff!important;
+    }
+    
+    .theme-major-dark .media-loading {
+	    background-color: #ffffff!important;
+	    outline: 1px solid #ffffff;
+    }
+    
+    .theme-major-dark .media-media {
+	    background-color: #ffffff!important;
+    }
+    
+    /* end dark template mods */
+    
+
+	@media (max-width: 650px) {
+	  .met-footer-row {
+	    display: block;
+	  }
 	  
-	  
+	  .met-footer-item, .met-footer-item.met-wider-article {
+		  width: 100%;
+		  padding-bottom: 15px;
+	  }
+	}
+	
+	/* suppress some elements for print view */
+	
+	body.print-view .met-signature-wrapper, body.print-view .metro-illustrated-strip, body.print-view .met-footer-wrapper {
+		display: none;
+	}
+
+	body.print-view .app-tagline {
+		display: none;
+	}
