@@ -524,7 +524,11 @@
 		color: #eeeeee;
 		border-bottom: none;
 	  }
-
+	  
+	  .met-menu-item a:hover {
+	  	text-decoration: underline;
+	  }
+	  
 	  p.met-footer-text {
 		font-size: 1.1em;
 		line-height: 1.4em;
@@ -541,6 +545,12 @@
 	  
 	  p.met-footer-logo img {
 		vertical-align: top;
+	  }
+	  
+	  p.met-footer-logo a {
+		text-decoration: none;
+		text-transform: none;  
+		border-bottom: none;
 	  }
 	  
 	  .met-neg-margin-top-10 {
