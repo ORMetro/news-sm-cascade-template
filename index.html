@@ -41,7 +41,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="resources/lib/colorbox/jquery.colorbox-min.js"></script>
 	
-		<script>
+	<script type="text/javascript">
 			
 			function waitForElement(elementPath, callBack) {
 			  window.setTimeout(function() {
@@ -50,10 +50,12 @@
 			    } else {
 			      waitForElement(elementPath, callBack);
 			    }
-			  },500);
+			  }, 500);
 			}
 			
 			$(document).ready(function() {
+				$('div#at4-share').addClass('met-make-invisible');
+				
 				// assign the Colorbox event to the class colorbox-load
 				$(".met-colorbox-popup").colorbox({iframe:true, closeButton:true, width:"380", height:"480"});
 				// if the URL already has the print parameter in it, skip the modification of the print URL
@@ -62,18 +64,31 @@
 				  // insert the print URL into the div containing the print icon
 				  $('#met-print-this-page').append('<a title="Print this page" target="_blank" href="' + window.location.href + '&print=1"><img alt="Invoke print option" src="resources/styles/images/printer2_black_30x30px.png"></a>'); 
 				}
+				
+				// hide addthis sharing widget until scrolling happens
+/*
+				waitForElement("div#at4-share",function() {
+					console.log('Hiding addthis-smartlayers-desktop');
+				    $('.addthis-smartlayers-desktop').css('display','none');
+				    $('.addthis-smartlayers-desktop').css('right','9999');
+				    $('.addthis-smartlayers-desktop').addClass('met-make-visible');
+				});
+*/
 			});
 
-/*
-			waitForElement(".addthis-smartlayers-desktop",function(){
-			    $('.addthis-smartlayers-desktop').css('display','none');
-			});
-*/
+
 
 			document.addEventListener("scroll", function() {
 				if (window.pageYOffset > 600) {
-					$('#met-print-this-page').css('display','block');
-					$('#at4-share').attr('style', 'display: block!important');
+					// $('#met-print-this-page').css('display','block');
+					$('#met-print-this-page').fadeIn(500);
+/*
+					$('#at4-share').css('display', 'block');
+					$('#at4-share').css('right', '0px');
+				    $('div#at4-share').removeClass('met-make-invisible');
+					$('div#at4-share').addClass('met-make-visible');
+					console.log('in storymap template, setting at4-share to has class met-make-visible');
+*/
 				}
 			});
 		</script>

@@ -305,7 +305,11 @@
 	  /* icon used only on small screens? */
 	  body > div.embed-wrapper > div.story-header > ul > li.dropdown.bookmark-dropdown.visible.active > a > span.glyphicon.glyphicon-th-list {
 		  color: #00828c;
-		  line-height: 30px;
+		  line-height: 16px;
+	  }
+	  
+	  div.embed-wrapper > div.story-header > ul li.dropdown bookmark-dropdown visible active {
+		  border-bottom: none;
 	  }
 	  
 	  body.mobile-view div.embed-wrapper > div.story-header > ul > li.active,
@@ -401,16 +405,28 @@
 	  .bookmarks .bookmark {
 		  color: #ffffff;
 	  }
+	  
 	  .bookmarks .dropdown .dropdown-menu {
 		  background-color: #003b5c;
 	  }
+	  
+	  .bookmarks .dropdown .dropdown-toggle {
+		  border-bottom: none;
+	  }
+	  
 	  .bookmarks .dropdown.active .dropdown-toggle {
 		  color: #d8a833;
 	  }
+	  
+	  .bookmarks .dropdown .dropdown-toggle a {
+		  border-bottom: none;  
+	  }
+	  
 	  .bookmarks .dropdown .bookmark.active {
 		  color: #ffffff;
 		  border-left-color: #d8a833!important;
 	  }
+	  
 	  .bookmarks .dropdown .bookmark:hover {
 		  border-left-color: #16a8b5;
 	  }
@@ -566,11 +582,26 @@
     }
 
 	/* mods to AddThis icons */
-	#at4-share {
-		display: none;
+	#at4-share, .atss {
+	  right: 9999px!important;
 	}
-	/* print icon */
+
+	.met-make-invisible {
+		opacity: 0.0!important;
+		right: 9999px!important;
+		visibility: hidden!important;
+		display: none!important;
+	}
 	
+	.met-make-visible {
+		opacity: 1.0!important;
+		right: 0!important;
+		visibility: visible!important;
+		display: block!important;
+	}
+	
+	/* print icon */
+
 	#met-print-this-page {
 	  display: none;
       bottom: 0;
@@ -660,3 +691,20 @@
 	body.print-view .app-tagline {
 		display: none;
 	}
+	
+	/* get quiz to be longer */
+	
+/*
+	div.block.block-webpage.scroll-off.block-size-large.interaction-enabled.bring-in, 
+	div.block.block-webpage.scroll-off.block-size-large.interaction-enabled.bring-in div.block-media-wrapper, 
+	div.block.block-webpage.scroll-off.block-size-large.interaction-enabled.bring-in div.block-media-wrapper figure.block-media,
+	div.block.block-webpage.scroll-off.block-size-large.interaction-enabled.bring-in div.block-media-wrapper figure.block-media iframe.media-item {
+		height: 1000px;
+	}
+	
+	div.block.block-webpage.scroll-off.block-size-large.interaction-enabled.bring-in div.block-media-wrapper {
+		padding-top: 0;
+	}
+*/
+	
+	
