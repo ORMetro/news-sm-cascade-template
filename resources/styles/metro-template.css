@@ -351,19 +351,65 @@
 		  font-size: 25px;
 	  }
 	  
-	  .section-layout-sequence blockquote, blockquote {
+	  /* block quote of a more journalistic styl;e */	  
+	  
+	  .section-layout-sequence blockquote, blockquote.block {
+		color: #677880;
+	  	display: block;
+		font-family: 'adelle-sans','Avenir Next','AvenirNext-Regular','Helvetica Neue','Helvetica','Arial',sans-serif;
+		font-size: 17px;
+		font-weight: 300;
+		font-style: normal!important;
+		text-align: right;
+		padding-right: 2em;
+	  }
+		  	  
+	  .section-layout-sequence blockquote b, blockquote.block b {
+	  	display: block;
 		font-family: 'adelle-sans','Avenir Next','AvenirNext-Regular','Helvetica Neue','Helvetica','Arial',sans-serif;
 		font-weight: 300;
 		font-size: 23px;
+		font-style: italic!important;
 		line-height: 36px;
 		color: #677880;
+		padding-right: 0;
+		text-align: left;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
-		border-top: 1px solid #ced0d2;
-		border-bottom: 1px solid #ced0d2;
+		/* border-top: 1px solid #ced0d2;
+		border-bottom: 1px solid #ced0d2;   */
 	  }
 	  
+	  .section-layout-sequence blockquote b:before {
+  		font-family: adelle, serif;
+	    font-size: 6em;
+	    font-weight: 300;
+	    content: '\201C';
+	    color: #677880;
+	    opacity: 0.3;
+	    position: absolute;
+	    top: 0.3em;
+	    left: -0.3em;    
+	    text-shadow: none;
+	    z-index: 0;
+	  }
+
+	  .section-layout-sequence blockquote b:after {
+  		font-family: adelle, serif;
+	    font-size: 6em;
+	    font-weight: 300;
+	    content: '\201D';
+	    color: #677880;
+	    opacity: 0.3;
+	    position: absolute;
+	    bottom: 0em;
+	    right: -0.1em;    
+	    text-shadow: none;
+	    z-index: 0;
+	  }
+	  
+
 	  /* credits area */
 	  strike {
 		font-size: 14px;
