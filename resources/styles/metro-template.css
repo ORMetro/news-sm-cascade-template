@@ -395,6 +395,14 @@
 	    z-index: 0;
 	  }
 
+	  .section-layout-sequence blockquote b:after { 
+  		font-family: adelle, serif;
+		font-size: 23px;
+  		font-weight: 300;
+		content: '”';
+	  }
+
+/* 	 big quote mark has a problem due to sometimes being positioned far from the actual end of the quote text
 	  .section-layout-sequence blockquote b:after {
   		font-family: adelle, serif;
 	    font-size: 6em;
@@ -408,6 +416,7 @@
 	    text-shadow: none;
 	    z-index: 0;
 	  }
+*/
 	  
 
 	  /* credits area */
