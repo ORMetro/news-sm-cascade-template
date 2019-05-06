@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Metro News storymap on bears</title>
+    <title>Metro News story map</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,7 +16,7 @@
         edit the following tags as well as the title tag above on line 4
     -->
 
-    <meta name="description" content="This story map was created with the Story Map Cascade application in ArcGIS Online.">
+<!--     <meta name="description" content="This story map was created with the Story Map Cascade application in ArcGIS Online."> -->
 
     <!--
     <meta property="og:type" content="article"/>
@@ -208,9 +208,9 @@
 
     <script type="text/javascript">
       var app = {
-        version: '1.9.1',
-        pathJSAPI3: 'https://js.arcgis.com/3.26/',
-        pathJSAPI4: 'https://js.arcgis.com/4.9/'
+        version: '1.10.0',
+        pathJSAPI3: 'https://js.arcgis.com/3.27/',
+        pathJSAPI4: 'https://js.arcgis.com/4.10/'
       };
     </script>
     <noscript>
@@ -221,7 +221,7 @@
     </noscript>
   </head>
   <body>
-    <link rel="stylesheet" href="resources/styles/metro-template.css">
+    <link rel="stylesheet" href="resources/styles/metro-cascade-template.css">
     <div class="embed-wrapper">
       <div style="position: fixed; top: 0px; left: 0px; z-index: 100; height: 8px; width: 100%; background-color: #A3Ad38;">
 	      <p style="height: 8px;">&nbsp;</p>
@@ -254,7 +254,8 @@
       <!-- additions to the template to support Metro branding -->
 	    <div class="met-signature-wrapper">
 		    <div id="metro-illustrated-strip">
-		      <p>&nbsp;</p>
+			  <!-- replace the background image with a foreground image -->
+		      <img border=0 alt="" src="https://www.oregonmetro.gov/sites/all/themes/metro_theme/images/footer-illustration-strip-v4-944x76px.png">
 		    </div>
 	    </div>
 	    <div class="met-footer-wrapper">
@@ -425,6 +426,7 @@
       </div>
     </div>
     <div id="print-wrapper"></div>
+
     <script type="text/javascript" src="app/main-config.js"></script>
   </body>
 </html>
