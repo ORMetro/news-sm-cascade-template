@@ -81,7 +81,7 @@
 	}
 		
 	body.mobile-view .section-layout-cover h1.cover-title {
-		font-size: 40px;
+		font-size: 2em;
 	}
 
 	.story-header .title {
@@ -129,18 +129,23 @@
 		text-rendering: optimizeLegibility;
     }
 
-	@media (max-width: 1800px) {
+	@media all and (min-width: 1701px) {
 		.section-layout-cover .cover-title {
-			font-size: 4em;
+			font-size: 3.3em;
 		}
 	}
 	
-	@media (max-width: 1200px) {
+	@media all and (max-width: 1700px) {
 		.section-layout-cover .cover-title {
-			font-size: 3em;
+			font-size: 2.5em;
 		}
 	}
 	
+	@media all and (max-width: 700px) {
+		.section-layout-cover .cover-title {
+			font-size: 2em;
+		}
+	}
 	
    	/*------------------------------------------------------------------------*/
 	/*                                  TEXT                                  */
@@ -714,8 +719,12 @@
 	}
 		
 	body .sections .section-layout-cover:first-of-type .foreground {
+/*
 		vertical-align: bottom;
 		margin-bottom: 78px;
+*/
+		vertical-align: top;
+		margin-top: 78px;
 	}
 
 	.section-layout-cover .cover-subtitle {
