@@ -427,6 +427,15 @@
     </div>
     <div id="print-wrapper"></div>
 
+	<!-- Google Analytics: compensate for cascade template opening iOS sessions in a new tab without the iframe -->
+	<script>
+	if (window.top===window.self) {
+	  var _gaq=[['_setAccount','UA-1804010-6'],['_trackPageview']];
+	  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	  s.parentNode.insertBefore(g,s)}(document,'script'));
+	}
+	</script>
     <script type="text/javascript" src="app/main-config.js"></script>
   </body>
 </html>
