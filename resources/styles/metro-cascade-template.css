@@ -94,7 +94,7 @@
 
 	/* special case for the demo */
 	body > div.embed-wrapper > div.sections > div.section.section-immersive.layout-scroll-full.section-on-screen.bring-in.active > div.background-title > div {
-		background-color: rgba(255,255,255,0);
+		background-color: rgba(255,255,255,0.66);
     }
 
 	body > div.embed-wrapper > div.sections > div.section.section-immersive.layout-scroll-full.section-on-screen.bring-in.active > div.background-title > div > h2 {
@@ -103,7 +103,7 @@
 
     body > div.embed-wrapper > div.sections > div.section.section-immersive.layout-scroll-full.section-on-screen.bring-in.active > div.background-title > div > h2 {
 		font-family: adelle, serif;
-		text-shadow: 1px 1px 4px #ffffff, 1px 1px 8px #ffffff, 1px 1px 16px #ffffff, 1px 1px 24px #ffffff, 1px 1px 36px #ffffff, 1px 1px 48px #ffffff;
+		text-shadow: 1px 1px 10px #eeeeee;
     }
 
     .section-immersive .background-title {
@@ -219,7 +219,6 @@
     }
 				
 
-		
     .progressjs-container {
 		position: fixed;
 		top: 60px;
@@ -352,7 +351,7 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
-		color: #4c4c4c;
+		color: #060606;
 	}
 
 	/* caption for a gallery of images */
@@ -737,10 +736,18 @@
 		margin-top: 78px;
 	}
 
+	/* should this have .title-text too? */
 	.section-layout-cover .cover-subtitle {
 		margin-top: 0;
+		font-size: 22px;
+		line-height: 30px;
+	} 	
+	
+	body.mobile-view .section-layout-cover .cover-subtitle {
+		font-size: 18px;
+		line-height: 24px;
 	}
-		
+	
     div.embed-bar, div.share > div.share-btn-container {
 		display: none!important;
 		opacity: 0!important;
