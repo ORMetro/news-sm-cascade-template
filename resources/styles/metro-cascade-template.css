@@ -33,13 +33,13 @@
 	/*                              HYPERLINKS                                */ 
 	/*------------------------------------------------------------------------*/
 	
-	a {
+	a,	.imm-panel .blocks a {
 		color: #00828c;
 		text-decoration: none;
 		border-bottom: 1px dotted #00828C;
 	}
 	
-	a:hover {
+	a:hover, .imm-panel .blocks a:hover {
 		color: #00828c;
 		text-decoration: none;
 		border-bottom: 1px solid #00828C;
@@ -365,6 +365,25 @@
 		color: #ffffff;
 		background-color: #5f6c75;
 		margin-top: 0!important;
+	}
+	
+	div.image figcaption.block-caption a {
+		color: #ffffff;
+		border-bottom: 1px dotted white;
+		display: inline-table;
+		font-size: 15px;
+		padding-top: 3px;
+		padding-bottom: 3px;
+	}
+	
+	body.mobile-view div.image figcaption.block-caption a {
+		display: inline;
+		border-bottom: none;
+		text-decoration: underline;
+	}
+			
+	div.image figcaption.block-caption a:hover {
+		border-bottom: 1px solid white;
 	}
 	
 	body.mobile-view .section-layout-sequence figcaption.block-caption {
