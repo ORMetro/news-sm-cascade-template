@@ -736,6 +736,11 @@
 		margin-top: 78px;
 	}
 
+
+	body > div.embed-wrapper > div.sections > div.section.section-layout-sequence.undefined.active > div.background.background-type-color + div.foreground {
+		padding-bottom: 30px;	
+	}
+
 	/* should this have .title-text too? */
 	.section-layout-cover .cover-subtitle {
 		margin-top: 0;
@@ -843,9 +848,18 @@
 	/*				                    MISCELLANEOUS					      */
 	/*------------------------------------------------------------------------*/ 
 	
-	
+	/* Fix problem with embedding iframes from infogram */
+	.block-webpage.block-size-small .block-media-wrapper {
+		padding-top: 32%;
+	}
 
+	body.tablet-view .block-webpage.block-size-small .block-media-wrapper {
+		padding-top: 40%;
+	}
 	
+	body.mobile-view .block-webpage.block-size-small .block-media-wrapper {
+		padding-top: 80%;
+	}
 	/*------------------------------------------------------------------------*/
 	/*				                  MOBILE RESPONSE					      */
 	/*------------------------------------------------------------------------*/ 
