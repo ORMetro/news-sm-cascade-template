@@ -172,8 +172,10 @@
 		opacity: 1;
     }
 		
-
-
+	.imm-panel.placement-left .blocksWrapper {
+		margin-left: 35px!important;
+	}
+	
     .blocksWrapper .blocks {
 		padding: 25px;
     }
@@ -785,9 +787,9 @@
 	#met-print-this-page {
 	display: none;
 		bottom: 0;
-		right: 0;
-		width: 40px;
-		height: 40px;
+		left: 0;
+		width: 35px;
+		height: 35px;
 		position: fixed;
 		z-index: 9000;
 		overflow: hidden;
