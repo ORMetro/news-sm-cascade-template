@@ -36,10 +36,13 @@
     <script type="text/javascript" src="//use.typekit.net/wgd1kzt.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-	<!-- colorbox -->
-	<link rel="stylesheet" href="resources/styles/colorbox.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="resources/lib/colorbox/jquery.colorbox-min.js"></script>
+	<!-- colorbox -->
+	<!--
+		<link rel="stylesheet" href="resources/styles/colorbox.css" />
+
+		<script src="resources/lib/colorbox/jquery.colorbox-min.js"></script>
+	-->
 	
 	<script type="text/javascript">
 			
@@ -57,7 +60,7 @@
 				$('div#at4-share').addClass('met-make-invisible');
 				
 				// assign the Colorbox event to the class colorbox-load
-				$(".met-colorbox-popup").colorbox({iframe:true, closeButton:true, width:"380", height:"480"});
+// 				$(".met-colorbox-popup").colorbox({iframe:true, closeButton:true, width:"380", height:"480"});
 				// if the URL already has the print parameter in it, skip the modification of the print URL
 				
 				if ((window.location.href.indexOf("&print") === -1) && (window.location.href.indexOf("?print") === -1)) {
@@ -333,7 +336,7 @@
 		      <article class="met-footer-item">
 	   		     <h2 class="met-menu-header">Connect with Metro</h2>
 			     <ul class="met-menu-item-clump">
-				     <li class="met-menu-item"><a href="https://library.oregonmetro.gov/files/branding/metro-mailchimp-footer-signup-form.html" class="met-colorbox-popup" title="Get Metro News by email to keep up with what the regional government and its partners are doing to manage parks, growth, transportation, environment and economy" target="_blank">Subscribe to Metro News</a></li>
+				     <li class="met-menu-item"><a target="_blank" href="https://library.oregonmetro.gov/files/branding/metro-mailchimp-footer-signup-form.html" title="Get Metro News by email to keep up with what the regional government and its partners are doing to manage parks, growth, transportation, environment and economy">Subscribe to Metro News</a></li>
 				     <li class="met-menu-item"><a href="https://www.oregonmetro.gov/subscribe">More subscription options</a></li>
 			     </ul>
 		      </article>
